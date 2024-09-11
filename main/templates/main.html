@@ -1,7 +1,41 @@
-<!DOCTYPE html>
-    <body>
-        <h1>{{ application_name }}</h1>
-        <p>{{ name }}</p>
-        <p>{{ class }}</p>
-    </body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<h1>Living Spaces</h1>
+
+<h5>Name:</h5>
+<p>{{ name }}</p>
+
+<h5>Class:</h5>
+<p>{{ class }}</p>
+
+{% if not mood_entries %}
+<p>Belum ada data produk pada Living Spaces.</p>
+{% else %}
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Stock</th>
+    <th>Category</th>
+  </tr>
+
+  
+  {% for product_entry in product_entries %}
+  <tr>
+    <td>{{product_entry.name}}</td>
+    <td>{{product_entry.price}}</td>
+    <td>{{product_entry.description}}</td>
+    <td>{{product_entry.stock}}</td>
+    <td>{{product_entry.category}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+<br />
+
+<a href="{% url 'main:create_product_entry' %}">
+  <button>Add New Product Entry</button>
+</a>
+{% endblock content %}
