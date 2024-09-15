@@ -11,7 +11,7 @@ Jawab: Karena pada sebuah aplikasi diperlukan interaksi antara pengguna dan plat
 Jawab: Menurut saya, JSON lebih mudah dibaca dibandingkan XML karena yang ditampilkan oleh JSON hanya merupakan atribut-atribut (key dan valuenya) dari model sehingga lebih mudah dibaca, tidak seperti XML yang harus menggunakan tag. Mungkin hal itu merupakan salah satu penyebab JSON menjadi lebih populer.
 
 3. Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
-Jawab: Memeriksa apakah form sudah diisi dan form yang user isi sesuai dengan field yang dibuat pada models.py, contohnya panjang minimal input
+Jawab: Memeriksa apakah form sudah diisi dan form yang user isi sesuai dengan ketentuan yang diberikan.
 
 
 4. Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
