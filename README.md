@@ -24,7 +24,7 @@ b. Tambahkan 4 fungsi views baru untuk melihat objek yang sudah ditambahkan dala
 
 c.  Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2: Pada urls.py di direktori main, menambahkan path('xml/', show_xml, name='show_xml') dan path('json/', show_json, name='show_json') yang akan memanggil fungsi show_xml dan show_json. Untuk 2 fungsi lainnya, menambahkan path('xml/<str:id>/', show_xml_by_id, name='show_xml_by_id') path('json/<str:id>/', show_json_by_id name='show_json_by_id') yang berarti jika user mengunjungi halaman /xml/<ID PRODUCT> atau /json/<ID PRODUCT> maka akan menampilkan data produk yang sesuai id nya dalam bentuk XML atau JSON.
 
-
+Screenshot Postman
 ![alt text](https://github.com/reyvanomario/living-spaces/blob/main/gambar_jawaban_pertanyaan/Screenshot%202024-09-11%20at%2021.31.00.png?raw=true)
 ![alt text](https://github.com/reyvanomario/living-spaces/blob/main/gambar_jawaban_pertanyaan/Screenshot%202024-09-11%20at%2021.28.40.png?raw=true)
 ![alt text](https://github.com/reyvanomario/living-spaces/blob/main/gambar_jawaban_pertanyaan/Screenshot%202024-09-11%20at%2021.28.20.png?raw=true)
