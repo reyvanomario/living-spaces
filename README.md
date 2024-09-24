@@ -1,7 +1,9 @@
+TUGAS 2:
 Link menuju PWS: http://reyvano-mario-livingspaces.pbp.cs.ui.ac.id/
 
 Link menuju jawaban pertanyaan: https://docs.google.com/document/d/1VXBnhfY-mlybEKJrxxPkxrCPvkGnb0jJz-qiiD2X_Z4/edit?usp=sharing
 
+TUGAS3:
 
 PERTANYAAN TUGAS 3:
 1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
@@ -29,3 +31,31 @@ Screenshot Postman
 ![alt text](https://github.com/reyvanomario/living-spaces/blob/main/gambar_jawaban_pertanyaan/Screenshot%202024-09-11%20at%2021.28.40.png?raw=true)
 ![alt text](https://github.com/reyvanomario/living-spaces/blob/main/gambar_jawaban_pertanyaan/Screenshot%202024-09-11%20at%2021.28.20.png?raw=true)
 ![alt text](https://github.com/reyvanomario/living-spaces/blob/main/gambar_jawaban_pertanyaan/Screenshot%202024-09-11%20at%2021.28.06.png?raw=true)
+
+
+TUGAS 4:
+
+1. Apa perbedaan antara HttpResponseRedirect() dan redirect()
+Jawab: HttpResponseRedirect() hanya menerima url view , sedangkat redirect() bisa menerima nama view sekaligus url view
+
+2. Jelaskan cara kerja penghubungan model Product dengan User!
+Jawab: Membuat field user di model Product. Setelah itu, di fungsi create_product_entry, menambahkan 'commit=False' di form.save agar form tidak langsung disimpan di database dan assign user yang melakukan request sebagai user dari product entry tersebut, lalu save input form nya. Di views show_main, product entries yang akan ditampilkan di filter berdasarkan user yang sedang login.
+
+3. Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
+Jawab: Authentication adalah proses verifikasi identitas pengguna (dalam hal ini username dan password). Django mengimplementasikannya dengan membuat sistem register akun, login, dan logout. Authorization adalah proses untuk mengizinkan seseorang yang sudah terautentikasi untuk mengakses sesuatu. Django mengimplementasikannya dengan decorator seperti "@login_required(login_url='/login')" yang dibuat pada fungsi show_main yang berarti hanya user yang berhasil login yang bisa mengakses fungsi show_main.
+
+4. Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
+Jawab: Django mengingat pengguna yang telah login dengan cookies. Saat user terhubung dengan server, server membuat data cookie yang unik untuk setiap usernya yang akan dicocokan nantinya terhadap informasi apa yang akan ditampilkan ke masing-masing user. Kegunaan lain dari cookies adalah personalisasi konten sesuai aktivitas yang kita lakukan misalnya saat kita browsing di website e-commerce, website tersebut akan menggunakan cookies untuk menampilkan barang-barang yang relevan terhadap histori pencarian kita. Tidak semua cookies aman digunakan terutama third party cookies karena bisa saja pihak ketiga menggunakan cookies untuk mencuri data dan identitas user.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step.
+Jawab: 
+a. Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar:
+Membuat html untuk halaman registrasi dan fungsi register di views.py menggunakan import UserCreationForm. Fungsi registrasi ini lalu melakukan render pada file register.html. Setelah itu melakukan routing untuk fungsi register di urls.py subdirektori main. Untuk fungsi login, membuat file html untuk login dan fungsi login_user pada views.py dengan bantuan import AuthenticationForm. Form tersebut akan meminta username dan password user untuk diautentikasi. Jika berhasil login, akan redirect user ke halaman main. Setelah itu melakukan routing untuk fungsi login_user di urls.py. Untuk fungsi logout, membuat fungsi logout_user dengan bantuan import logout dari django.contrib.auth. Setelah itu, menambahkan button untuk memanggil fungsi logout_user di main.html. Saat fungsi logout_user dipanggil, cookie yang sedang ada akan dihapus dan redirect user ke halaman login. Setelah itu melakukan routing di urls.py untuk fungsi logout_user.
+
+b. Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal: Menjalankan kode di lokal lalu melakukan register 2 buah akun berbeda. Setelah itu login dengan username dan password lalu menambahkan tiga product untuk masing-masing akun
+
+c. Menghubungkan model Product dengan User:
+Membuat field user di model Product. Setelah itu, di fungsi create_product_entry, menambahkan 'commit=False' di form.save agar form tidak langsung disimpan di database dan assign user yang melakukan request sebagai user dari product entry tersebut, lalu save input form nya. Di views show_main, product entries yang akan ditampilkan di filter berdasarkan user yang sedang login.
+
+d. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi:
+Di parameter render fungsi show_main di views.py, menambahkan variabel name berupa request.user.username yaitu username user yang melakukan request (user yang sedang login) lalu menampilkan variabel tersebut di main.html. Untuk membuat cookies, di di fungsi login_user setelah user berhasil login, membuat cookie bernama last_login yang berisi datetime saat ini. Pada parameter context di render fungsi show_main, menambahkan variabel last_login yaitu cookies milik user yang melakukan request dan menampilkannya di main.html.
