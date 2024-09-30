@@ -1,63 +1,67 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Living Spaces</h1>
-
-<h4>Username: {{ name }}</h4>
+{% include 'navbar.html' %}
 
 
-<h5>Class:</h5>
-<p>{{ class }}</p>
+  <h1>Living Spaces</h1>
 
-{% if not product_entries %}
-<p>Belum ada data produk pada Living Spaces.</p>
-{% else %}
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Description</th>
-    <th>Stock</th>
-    <th>Category</th>
-  </tr>
+  <h4>Username: {{ name }}</h4>
 
-  
-  {% for product_entry in product_entries %}
-  <tr>
-    <td>{{product_entry.name}}</td>
-    <td>{{product_entry.price}}</td>
-    <td>{{product_entry.description}}</td>
-    <td>{{product_entry.stock}}</td>
-    <td>{{product_entry.category}}</td>
 
-    <td>
-        <a href="{% url 'main:edit_product' product_entry.pk %}">
-            <button>
-                Edit
-            </button>
-        </a>
-    </td>
-    <td>
-        <a href="{% url 'main:delete_product' product_entry.pk %}">
-            <button>
-                Delete
-            </button>
-        </a>
-    </td>
-  </tr>
-  {% endfor %}
-</table>
-{% endif %}
+  <h5>Class:</h5>
+  <p>{{ class }}</p>
 
-<br />
+  {% if not product_entries %}
+  <p>Belum ada data produk pada Living Spaces.</p>
+  {% else %}
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Stock</th>
+      <th>Category</th>
+    </tr>
 
-<a href="{% url 'main:create_product_entry' %}">
-  <button>Add New Product Entry</button>
-</a>
+    
+    {% for product_entry in product_entries %}
+    <tr>
+      <td>{{product_entry.name}}</td>
+      <td>{{product_entry.price}}</td>
+      <td>{{product_entry.description}}</td>
+      <td>{{product_entry.stock}}</td>
+      <td>{{product_entry.category}}</td>
 
-<a href="{% url 'main:logout' %}">
-  <button>Logout</button>
-</a>
+      <td>
+          <a href="{% url 'main:edit_product' product_entry.pk %}">
+              <button>
+                  Edit
+              </button>
+          </a>
+      </td>
+      <td>
+          <a href="{% url 'main:delete_product' product_entry.pk %}">
+              <button>
+                  Delete
+              </button>
+          </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
 
-<h5>Sesi terakhir login: {{ last_login }}</h5>
+  <br />
+
+  <a href="{% url 'main:create_product_entry' %}">
+    <button>Add New Product Entry</button>
+  </a>
+
+  <a href="{% url 'main:logout' %}">
+    <button>Logout</button>
+  </a>
+
+  <h5>Sesi terakhir login: {{ last_login }}</h5>
+
 
 {% endblock content %}
