@@ -59,3 +59,34 @@ Membuat field user di model Product. Setelah itu, di fungsi create_product_entry
 
 d. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi:
 Di parameter render fungsi show_main di views.py, menambahkan variabel name berupa request.user.username yaitu username user yang melakukan request (user yang sedang login) lalu menampilkan variabel tersebut di main.html. Untuk membuat cookies, di di fungsi login_user setelah user berhasil login, membuat cookie bernama last_login yang berisi datetime saat ini. Pada parameter context di render fungsi show_main, menambahkan variabel last_login yaitu cookies milik user yang melakukan request dan menampilkannya di main.html.
+
+
+TUGAS 5:
+
+1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+Jawab: Prioritas dimulai dari inline styles, lalu ID selectors, lalu classes selectors, lalu element selectors
+
+2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+Jawab: Agar pengguna mendapatkan pengalaman yang lebih baik seperti web yang dapat menyesuaikan tampilan dengan ukuran layar device yang pengguna gunakan. Contoh aplikasi yang sudah menerapkan adalah aplikas-aplikas e-commerce seperti Tokopedia dan Shopee, sedangkan contoh aplikasi yang belum menerapkan adalah aren
+
+3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+Jawab: margin adalah area di luar di sekeliling elemen, border adalah garis yang mengelilingi elemen, dan padding adalah ruang di dalam elemen di sekeliling konten yang terdapat di elemen tersebut.
+Cara mengimplementasikannya: border: 4px solid black; margin: 10px; padding: 15px; (diletakkan di dalam css selectors)
+
+4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+Jawab: 
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+Jawab: 
+a. Implementasikan fungsi untuk menghapus dan mengedit product: 
+    1) Membuat fungsi edit_product di views.py yang menerima parameter request dan id product, lalu buat file edit_product.html (di main/templates) yang akan dirender oleh fungsi edit_product tadi, lalu menambahkan path di urls.py untuk menuju fungsi edit_product
+    2) Menambahkan button di setiap baris tabel yang akan memanggil fungsi edit_product
+    3) Membuat fungsi delete_product di views.py yang menerima parameter request dan id product, lalu menambahkan path di urls.py untuk menuju fungsi delete_product
+    2) Menambahkan button di setiap baris tabel yang akan memanggil fungsi delete_product
+
+b. Kustomisasi desain pada template HTML yang telah dibuat pada tugas-tugas sebelumnya menggunakan CSS framework (Tailwind):
+    1) Menambahkan script CDN di base.html untuk menyambungkan template django dengan taiwind
+    2) Membuat direktori static/css dan menambahkan file global.css (lalu menambahkan custom styling) di dalamnya lalu menambahkan link menuju global.css di base.html agar style CSS dapat digunakan
+    3) Melakukan styling pada halaman login, register, main, create product entry, edit product
+    4) Membuat file navbar.html di direktori templates dan include navbarnya di halaman selain login dan register
+    5) Membuat card untuk setiap product dan melakukan styling dengan tailwind
