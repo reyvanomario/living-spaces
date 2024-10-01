@@ -74,7 +74,7 @@ Jawab: margin adalah area di luar di sekeliling elemen, border adalah garis yang
 Cara mengimplementasikannya: border: 4px solid black; margin: 10px; padding: 15px; (diletakkan di dalam css selectors)
 
 4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
-Jawab: 
+Jawab: flex box adalah sistem layout 1 dimensi (bekerja dalam 1 baris atau 1 kolom), sedangkan grid adalah sistem layout 2 dimensi (bekerja baik dalam baris maupun kolom)
 
 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
 Jawab: 
