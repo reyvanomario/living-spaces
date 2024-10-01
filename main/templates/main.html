@@ -6,7 +6,8 @@
 {% endblock meta %}
 {% block content %}
 {% include 'navbar.html' %}
-<div class="overflow-x-hidden px-4 md:px-8 pb-8 pt-24 min-h-screen bg-gray-100 flex flex-col">
+
+<div class="overflow-x-hidden px-4 md:px-8 pb-8 pt-24 min-h-screen bg-neutral-800 flex flex-col">
   <div class="p-2 mb-6 relative">
     <div class="relative grid grid-cols-1 z-30 md:grid-cols-3 gap-8">
       {% include "card_info.html" with title='Username' value=name %}
@@ -39,7 +40,7 @@
     {% else %}
     <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 w-full">
       {% for product in product_entries %}
-          {% include 'card_product.html' with product_entry=product %}
+          {% include 'card_product.html' with product=product %}
       {% endfor %}
     </div>
     {% endif %}
