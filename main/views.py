@@ -22,6 +22,8 @@ from django.shortcuts import reverse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
+from django.utils.html import strip_tags
+
 # Create your views here.
 
 @login_required(login_url='/login')
@@ -128,11 +130,11 @@ def delete_product(request, id):
 @csrf_exempt
 @require_POST
 def add_product_entry_ajax(request):
-    name = request.POST.get("name")
+    name = strip_tags(request.POST.get("name"))
     price = request.POST.get("price")
-    description = request.POST.get("description")
+    description = strip_tags(request.POST.get("description"))
     stock = request.POST.get("stock")
-    category = request.POST.get("category")
+    category = strip_tags(request.POST.get("category"))
     user = request.user
 
     new_product = Product(
