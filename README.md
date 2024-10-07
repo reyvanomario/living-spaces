@@ -90,3 +90,31 @@ b. Kustomisasi desain pada template HTML yang telah dibuat pada tugas-tugas sebe
     3) Melakukan styling pada halaman login, register, main, create product entry, edit product
     4) Membuat file navbar.html di direktori templates dan include navbarnya di halaman selain login dan register
     5) Membuat card untuk setiap product dan melakukan styling dengan tailwind
+
+
+TUGAS 6:
+1.  Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
+Jawab: Membuat aplikasi web yang responsif dan dinamis terhadap interaksi dari user
+
+2. Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?
+Jawab: Pause sementara untuk menunggu promise yang diresolve oleh fungsi getProductEntries(), baru melanjutkan sisa kodenya. Jika tidak menggunakan await, maka fungsi tidak akan menunggu promise dari getProductEntries() sehingga tidak ada produk dari fungsi yang direturn oleh getProductEntries() untuk ditampilkan.
+
+3. Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?
+Jawab: Agar tidak perlu melakukan pengecekan CSRF token di bagian add product menggunakan AJAX
+
+4. Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?
+Jawab: Mengurangi beban di frontend, mencegah terjadinya manipulasi data yang langsung ke server
+
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+Jawab:
+1) Ubahlah kode cards data mood agar dapat mendukung AJAX GET: Pada views.py, mengubah variabel data di fungsi show_json dan show_xml menjadi hanya data yang diinput milik user. Setelah itu menghapus block conditional di main.html untuk menampilkan card product ketika kosong atau tidak dan menambahkan tag div dengan id 'product_entry_cards'. Di bawahnya, menambahkan tag script dan fungsi getProductEntries() serta refreshProductEntries() di dalamnya.
+
+2) AJAX POST:
+- Membuat button untuk add product by AJAX di main.html yang memanggil fungsi onClick() ketika diklik
+- Menambahkan kode untuk mengimplementasikan modal di main.html di bawah div dengan id 'product_entry_cards'
+- Menambahkan fungsi addProductEntry() di main.html dan event listener untuk menjalankannya
+- Membuat fungsi add_product_entry_ajax di views.py
+- Melakukan routing pada fungsi add_product_entry_ajax di urls.py dengan path 'create-product-entry-ajax'
+- Memanggil fungsi refreshProductEntries() untuk melakukan refresh pada data product secara asynchronus setiap membuka halaman web
+
